@@ -1,0 +1,9 @@
+.TodoList {
+  width: 100vw;
+}
+
+@media (min-width: 764px) {
+  .TodoList {
+    width: 40vw;
+  }
+}

@@ -2,14 +2,9 @@ import React from 'react';
 import { TodoCounter } from './components/TodoCounter';
 import { TodoSearch } from './components/TodoSearch';
 import { TodoList } from './components/TodoList';
-import { TodoItem } from './components/TodoItem';
 import { CreateTodoList } from './components/CreateTodoList';
+import { List } from './models/List.model';
 // import "./App.css";
-
-interface List {
-  text: string;
-  completed: boolean;
-}
 
 const todos: List[] = [
   { text: 'Cortar cebolla', completed: false },
@@ -22,11 +17,7 @@ function App() {
     <React.Fragment>
       <TodoCounter />
       <TodoSearch />
-      <TodoList>
-        {todos.map((todo) => (
-          <TodoItem key={todo.text} text={todo.text} />
-        ))}
-      </TodoList>
+      <TodoList todos={todos} />
       <CreateTodoList />
     </React.Fragment>
   );

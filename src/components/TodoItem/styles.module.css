@@ -1,0 +1,21 @@
+.TodoItem {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  min-height: 6rem;
+  height: fit-content;
+  margin: 2.2rem;
+  padding: 1rem;
+  /* border-left: 2px solid #c5aafd; */
+  border-radius: 0 12px 12px 0;
+  /* background: linear-gradient(90deg, #fff 0%, #f4efff 100%); */
+}
+
+.TodoItem__p {
+  grid-column: 1 / 12;
+}
+
+.TodoItem__check {
+  grid-column: 12;
+  justify-self: center;
+}
