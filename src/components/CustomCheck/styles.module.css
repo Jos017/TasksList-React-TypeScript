@@ -1,11 +1,3 @@
-:root {
-  --control-white: #fff;
-  --control-color: #fff;
-  --control-background: #ccb8ff;
-  --control-gray: #aaa;
-  --control-disabled: #eee;
-}
-
 .CustomCheck__control {
   display: flex;
   justify-content: center;
@@ -16,12 +8,12 @@
   display: grid;
   place-content: center;
   appearance: none;
-  background-color: var(--control-white);
+  background-color: var(--control-secondary);
   font: inherit;
   color: currentColor;
   width: 2.4rem;
   height: 2.4rem;
-  border: 0.05em solid var(--control-gray);
+  border: 0.05em solid var(--gray-primary);
   border-radius: 50%;
   transition: 120ms background-color ease-in-out;
   cursor: pointer;
@@ -35,12 +27,12 @@
   transform-origin: bottom left;
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--control-color);
+  box-shadow: inset 1em 1em var(--control-secondary);
   background-color: CanvasText;
 }
 
 .CustomCheck__checkbox:checked {
-  background-color: var(--control-background);
+  background-color: var(--control-primary);
 }
 
 .CustomCheck__checkbox:checked::before {
@@ -49,7 +41,7 @@
 
 .CustomCheck__checkbox:disabled {
   --control-color: var(--control-disabled);
-  background-color: var(--control-gray);
+  background-color: var(--gray-primary);
   color: var(--control-disabled);
   cursor: not-allowed;
 }

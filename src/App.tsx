@@ -14,12 +14,12 @@ const todos: List[] = [
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="App">
+      <CreateTodoList />
       <TodoCounter />
       <TodoSearch />
       <TodoList todos={todos} />
-      <CreateTodoList />
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -1,0 +1,52 @@
+.CreateTodoList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.CreateTodoList__title {
+  margin: 2.2rem;
+}
+.CreateTodoList__subtitle {
+  margin-left: 2.2rem;
+}
+
+.CreateTodoList__input {
+  border: 2px solid var(--gray-primary);
+  border-radius: 2.4rem;
+  height: 4.8rem;
+  margin: 0.4rem 2.2rem 1.2rem;
+  padding: 0.4rem 5rem 0.4rem 1.6rem;
+  outline: 0;
+  font-size: 1.4rem;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--input-background);
+}
+
+.CreateTodoList__input:hover {
+  box-shadow: 0px 0px 2px 0px var(--gray-secondary);
+}
+
+.CreateTodoList__button {
+  border: none;
+  min-height: 5rem;
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.CreateTodoList__button:hover {
+  box-shadow: 0px 0px 8px 0px var(--primary);
+}
+
+@media (min-width: 768px) {
+  .CreateTodoList {
+    width: 40vw;
+  }
+}

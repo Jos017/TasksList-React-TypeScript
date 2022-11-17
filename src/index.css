@@ -1,3 +1,15 @@
+:root {
+  --white: #fff;
+  --primary: #6f54d0;
+  --secondary: #fff;
+  --input-background: #fff;
+  --gray-primary: #aaa;
+  --gray-secondary: #444;
+  --control-primary: #ccb8ff;
+  --control-secondary: #fff;
+  --control-disabled: #eee;
+}
+
 * {
   margin: 0;
   padding: 0;
