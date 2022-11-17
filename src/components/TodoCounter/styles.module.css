@@ -1,4 +1,12 @@
 .title {
+  grid-column: 1 / 13;
+  grid-row: 2;
   font-size: 24px;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .title {
+    grid-column: 7 / 13;
+  }
 }

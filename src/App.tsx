@@ -4,7 +4,7 @@ import { TodoSearch } from './components/TodoSearch';
 import { TodoList } from './components/TodoList';
 import { CreateTodoList } from './components/CreateTodoList';
 import { List } from './models/List.model';
-// import "./App.css";
+import './App.css';
 
 const todos: List[] = [
   { text: 'Cortar cebolla', completed: false },
@@ -15,10 +15,11 @@ const todos: List[] = [
 function App() {
   return (
     <div className="App">
-      <CreateTodoList />
+      <h1 className="App__title">Your Tasks</h1>
       <TodoCounter />
       <TodoSearch />
       <TodoList todos={todos} />
+      <CreateTodoList />
     </div>
   );
 }

@@ -1,9 +1,12 @@
 .TodoList {
+  grid-column: 1 / 13;
+  grid-row: 4;
   width: 100vw;
 }
 
 @media (min-width: 764px) {
   .TodoList {
     width: 40vw;
+    grid-column: 7 / 13;
   }
 }

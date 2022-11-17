@@ -1,4 +1,6 @@
 .CreateTodoList {
+  grid-column: 1 / 13;
+  grid-row: 5;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -48,5 +50,7 @@
 @media (min-width: 768px) {
   .CreateTodoList {
     width: 40vw;
+    grid-column: 1 / 7;
+    grid-row: 1 / 5;
   }
 }
