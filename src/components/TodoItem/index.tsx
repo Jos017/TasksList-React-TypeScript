@@ -7,7 +7,8 @@ import { ItemColor } from '../../models/ItemColor.model';
 import { cardsColors } from '../../models/ItemColors.model';
 
 export const TodoItem = (props: ItemProps) => {
-  const [isComplete, setIsComplete] = useState(false);
+  const { completed } = props;
+  const [isComplete, setIsComplete] = useState(completed);
 
   const onComplete = (state: boolean) => {
     setIsComplete(state);
@@ -61,7 +62,7 @@ export const TodoItem = (props: ItemProps) => {
           {props.text}
         </p>
       </div>
-      <CustomCheck onComplete={onComplete} />
+      <CustomCheck onComplete={onComplete} completed={completed} />
     </li>
   );
 };

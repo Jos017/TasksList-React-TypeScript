@@ -4,10 +4,12 @@ import styles from './styles.module.css';
 
 interface CheckProps extends Props {
   onComplete: (state: boolean) => void;
+  completed: boolean;
 }
 
 export const CustomCheck = (props: CheckProps) => {
-  const [isChecked, setIsChecked] = useState(false);
+  const { onComplete, completed } = props;
+  const [isChecked, setIsChecked] = useState(completed);
 
   return (
     <React.Fragment>
@@ -18,7 +20,7 @@ export const CustomCheck = (props: CheckProps) => {
           className={styles.CustomCheck__checkbox}
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
-          onClick={() => props.onComplete(!isChecked)}
+          onClick={() => onComplete(!isChecked)}
         />
       </label>
     </React.Fragment>

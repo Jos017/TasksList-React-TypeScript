@@ -1,6 +1,18 @@
 import React from 'react';
+import { Props } from '../../models/Props.model';
 import styles from './styles.module.css';
 
-export const TodoCounter = () => {
-  return <h2 className={styles.title}>Has completado 2 de las 3 tareas</h2>;
+interface CounterProps extends Props {
+  total: number;
+  completed: number;
+}
+
+export const TodoCounter = (props: CounterProps) => {
+  const { total, completed } = props;
+
+  return (
+    <h2 className={styles.title}>
+      {`Has completado ${completed} de las ${total} tareas`}
+    </h2>
+  );
 };

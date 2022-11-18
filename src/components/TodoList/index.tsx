@@ -23,7 +23,12 @@ export const TodoList = (props: ListProps) => {
             counter = 0;
           }
           return (
-            <TodoItem key={todo.text} text={todo.text} itemColor={itemColor} />
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              itemColor={itemColor}
+              completed={todo.completed}
+            />
           );
         })}
       </ul>
