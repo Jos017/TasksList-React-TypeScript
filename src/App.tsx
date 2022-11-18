@@ -13,11 +13,13 @@ const todos: List[] = [
 ];
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState('');
+
   return (
     <div className="App">
       <h1 className="App__title">Your Tasks</h1>
       <TodoCounter />
-      <TodoSearch />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList todos={todos} />
       <CreateTodoList />
     </div>
