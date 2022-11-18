@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.css';
 import { CustomCheck } from '../CustomCheck';
 import { ItemProps } from '../../models/ItemProps.model';
@@ -7,6 +7,13 @@ import { ItemColor } from '../../models/ItemColor.model';
 import { cardsColors } from '../../models/ItemColors.model';
 
 export const TodoItem = (props: ItemProps) => {
+  const [isComplete, setIsComplete] = useState(false);
+
+  const onComplete = (state: boolean) => {
+    setIsComplete(state);
+    // alert(`You completed the task + ${props.text}`);
+  };
+
   const getRandomColor = (): ItemColor => {
     const maxNumber = 3;
     const randNumber = Math.floor(Math.random() * (maxNumber + 1));
@@ -43,8 +50,18 @@ export const TodoItem = (props: ItemProps) => {
         borderLeft: cardColor.border,
       }}
     >
-      <p className={styles.TodoItem__p}>{props.text}</p>
-      <CustomCheck />
+      <div className={styles.TodoItem__p}>
+        <p
+          className={
+            isComplete
+              ? styles.TodoItem__p__complete
+              : styles.TodoItem__p__pending
+          }
+        >
+          {props.text}
+        </p>
+      </div>
+      <CustomCheck onComplete={onComplete} />
     </li>
   );
 };
