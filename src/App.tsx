@@ -30,12 +30,30 @@ function App() {
     });
   }
 
+  const completeTodo = (text: string) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const postponeTodo = (text: string) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = false;
+    setTodos(newTodos);
+  };
+
   return (
     <div className="App">
       <h1 className="App__title">Your Tasks</h1>
       <TodoCounter completed={completedTodos} total={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-      <TodoList todos={searchedTodos} />
+      <TodoList
+        todos={searchedTodos}
+        completeTodos={completeTodo}
+        postponeTodos={postponeTodo}
+      />
       <CreateTodoList />
     </div>
   );

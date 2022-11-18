@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './styles.module.css';
 import { CustomCheck } from '../CustomCheck';
-import { ItemProps } from '../../models/ItemProps.model';
+import { Props } from '../../models/Props.model';
 import { ItemColors } from '../../models/ItemColors.model';
 import { ItemColor } from '../../models/ItemColor.model';
 import { cardsColors } from '../../models/ItemColors.model';
 
-export const TodoItem = (props: ItemProps) => {
-  const { completed } = props;
-  const [isComplete, setIsComplete] = useState(completed);
+interface ItemProps extends Props {
+  itemColor?: 'random' | ItemColors;
+  text: string;
+  completed: boolean;
+  completeTodos: (text: string) => void;
+  postponeTodos: (text: string) => void;
+}
 
-  const onComplete = (state: boolean) => {
-    setIsComplete(state);
-    // alert(`You completed the task + ${props.text}`);
-  };
+export const TodoItem = (props: ItemProps) => {
+  const { itemColor, text, completed, completeTodos, postponeTodos } = props;
 
   const getRandomColor = (): ItemColor => {
     const maxNumber = 3;
@@ -25,7 +27,7 @@ export const TodoItem = (props: ItemProps) => {
   // Set default value for card Color
   let cardColor = cardsColors[0];
 
-  switch (props.itemColor) {
+  switch (itemColor) {
     case 'random':
       cardColor = getRandomColor();
       break;
@@ -54,15 +56,20 @@ export const TodoItem = (props: ItemProps) => {
       <div className={styles.TodoItem__p}>
         <p
           className={
-            isComplete
+            completed
               ? styles.TodoItem__p__complete
               : styles.TodoItem__p__pending
           }
         >
-          {props.text}
+          {text}
         </p>
       </div>
-      <CustomCheck onComplete={onComplete} completed={completed} />
+      <CustomCheck
+        onComplete={completeTodos}
+        onPostpone={postponeTodos}
+        completed={completed}
+        text={text}
+      />
     </li>
   );
 };
