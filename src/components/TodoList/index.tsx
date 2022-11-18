@@ -8,10 +8,11 @@ interface ListProps extends Props {
   todos: List[];
   completeTodos: (text: string) => void;
   postponeTodos: (text: string) => void;
+  deleteTodos: (text: string) => void;
 }
 
 export const TodoList = (props: ListProps) => {
-  const { todos, completeTodos, postponeTodos } = props;
+  const { todos, completeTodos, postponeTodos, deleteTodos } = props;
   let counter = 0;
   let itemColor = counter;
 
@@ -32,8 +33,9 @@ export const TodoList = (props: ListProps) => {
               text={todo.text}
               itemColor={itemColor}
               completed={todo.completed}
-              completeTodos={() => completeTodos(todo.text)}
-              postponeTodos={() => postponeTodos(todo.text)}
+              completeTodos={completeTodos}
+              postponeTodos={postponeTodos}
+              deleteTodos={deleteTodos}
             />
           );
         })}

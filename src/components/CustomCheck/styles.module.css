@@ -11,8 +11,8 @@
   background-color: var(--control-secondary);
   font: inherit;
   color: currentColor;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border: 0.05em solid var(--gray-primary);
   border-radius: 50%;
   transition: 120ms background-color ease-in-out;
@@ -21,8 +21,8 @@
 
 .CustomCheck__checkbox::before {
   content: "";
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   transform: scale(0);
   transform-origin: bottom left;
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);

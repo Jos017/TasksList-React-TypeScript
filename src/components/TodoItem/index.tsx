@@ -12,10 +12,18 @@ interface ItemProps extends Props {
   completed: boolean;
   completeTodos: (text: string) => void;
   postponeTodos: (text: string) => void;
+  deleteTodos: (text: string) => void;
 }
 
 export const TodoItem = (props: ItemProps) => {
-  const { itemColor, text, completed, completeTodos, postponeTodos } = props;
+  const {
+    itemColor,
+    text,
+    completed,
+    completeTodos,
+    postponeTodos,
+    deleteTodos,
+  } = props;
 
   const getRandomColor = (): ItemColor => {
     const maxNumber = 3;
@@ -53,6 +61,14 @@ export const TodoItem = (props: ItemProps) => {
         borderLeft: cardColor.border,
       }}
     >
+      <div
+        className={styles.TodoItem__delete}
+        onClick={() => deleteTodos(text)}
+      >
+        <i className={`material-icons ${styles.TodoItem__icon__delete}`}>
+          delete
+        </i>
+      </div>
       <div className={styles.TodoItem__p}>
         <p
           className={

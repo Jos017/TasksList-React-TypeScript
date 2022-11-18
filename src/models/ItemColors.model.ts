@@ -4,22 +4,22 @@ export const cardsColors: ItemColor[] = [
   {
     name: 'purple',
     gradient: 'linear-gradient(90deg, #fff 0%, #f4efff 100%)',
-    border: '2px solid #c5aafd',
+    border: '3px solid #c5aafd',
   },
   {
     name: 'cyan',
     gradient: 'linear-gradient(90deg, #fff 0%, #E9F4FF 100%)',
-    border: '2px solid #81c2ff',
+    border: '3px solid #81c2ff',
   },
   {
     name: 'pink',
     gradient: 'linear-gradient(90deg, #fff 0%, #FFEFFB 100%)',
-    border: '2px solid #ffa1ea',
+    border: '3px solid #ffa1ea',
   },
   {
     name: 'orange',
     gradient: 'linear-gradient(90deg, #fff 0%, #FFF2EA 100%)',
-    border: '2px solid #ffb98c',
+    border: '3px solid #ffb98c',
   },
 ];
 

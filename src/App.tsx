@@ -44,6 +44,13 @@ function App() {
     setTodos(newTodos);
   };
 
+  const deleteTodo = (text: string) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  };
+
   return (
     <div className="App">
       <h1 className="App__title">Your Tasks</h1>
@@ -53,6 +60,7 @@ function App() {
         todos={searchedTodos}
         completeTodos={completeTodo}
         postponeTodos={postponeTodo}
+        deleteTodos={deleteTodo}
       />
       <CreateTodoList />
     </div>
