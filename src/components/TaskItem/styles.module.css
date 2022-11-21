@@ -1,4 +1,4 @@
-.TodoItem {
+.TaskItem {
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -10,14 +10,14 @@
   border-radius: 0 12px 12px 0;
 }
 
-.TodoItem__p {
+.TaskItem__p {
   position: relative;
   grid-column: 1 / 12;
   width: fit-content;
 }
 
-.TodoItem__p__complete::before,
-.TodoItem__p__pending::before {
+.TaskItem__p__complete::before,
+.TaskItem__p__pending::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -28,11 +28,11 @@
   transform-origin: bottom left;
 }
 
-.TodoItem__p__complete::before {
+.TaskItem__p__complete::before {
   animation: 0.5s task-completed ease-in-out;
 }
 
-.TodoItem__p__pending::before {
+.TaskItem__p__pending::before {
   animation: 0.5s task-pending ease-in-out;
   opacity: 0;
 }
@@ -57,12 +57,12 @@
   }
 }
 
-.TodoItem__check {
+.TaskItem__check {
   grid-column: 12;
   justify-self: center;
 }
 
-.TodoItem__delete {
+.TaskItem__delete {
   position: absolute;
   display: flex;
   cursor: pointer;
@@ -76,11 +76,11 @@
   background-color: var(--alert);
 }
 
-.TodoItem__delete:hover {
+.TaskItem__delete:hover {
   box-shadow: 0px 0px 8px 0px var(--alert);
 }
 
-.TodoItem__icon__delete {
+.TaskItem__icon__delete {
   color: var(--secondary);
   font-size: 2rem;
 }

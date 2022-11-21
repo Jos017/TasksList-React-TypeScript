@@ -3,71 +3,71 @@ import { List } from '../../models/List.model';
 import { AppUI } from './AppUI';
 
 function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos: List[];
+  const localStorageTasks = localStorage.getItem('TasksApp_V1');
+  let parsedTasks: List[];
 
   // Verify if there are created tasks
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
+  if (!localStorageTasks) {
+    localStorage.setItem('TasksApp_V1', JSON.stringify([]));
+    parsedTasks = [];
   } else {
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedTasks = JSON.parse(localStorageTasks);
   }
 
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const [tasks, setTasks] = React.useState(parsedTasks);
   const [searchValue, setSearchValue] = React.useState('');
 
-  const completedTodos = todos.filter((todo) => todo.completed).length;
-  const totalTodos = todos.length;
-  let searchedTodos = [];
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const totalTasks = tasks.length;
+  let searchedTasks = [];
 
   if (searchValue.length < 1) {
-    searchedTodos = todos;
+    searchedTasks = tasks;
   } else {
-    searchedTodos = todos.filter((todo) => {
-      const todoText = todo.text.toLowerCase();
+    searchedTasks = tasks.filter((task) => {
+      const taskText = task.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText);
+      return taskText.includes(searchText);
     });
   }
 
-  const saveTodos = (newTodos: List[]) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
+  const saveTasks = (newTasks: List[]) => {
+    const stringifiedTasks = JSON.stringify(newTasks);
+    localStorage.setItem('TasksApp_V1', stringifiedTasks);
+    setTasks(newTasks);
   };
 
-  const completeTodo = (text: string) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
+  const completeTask = (text: string) => {
+    const taskIndex = tasks.findIndex((task) => task.text === text);
+    const newTasks = [...tasks];
+    newTasks[taskIndex].completed = true;
+    saveTasks(newTasks);
   };
 
-  const postponeTodo = (text: string) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos[todoIndex].completed = false;
-    saveTodos(newTodos);
+  const postponeTask = (text: string) => {
+    const taskIndex = tasks.findIndex((task) => task.text === text);
+    const newTasks = [...tasks];
+    newTasks[taskIndex].completed = false;
+    saveTasks(newTasks);
   };
 
-  const deleteTodo = (text: string) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
-    const newTodos = [...todos];
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
+  const deleteTask = (text: string) => {
+    const taskIndex = tasks.findIndex((task) => task.text === text);
+    const newTasks = [...tasks];
+    newTasks.splice(taskIndex, 1);
+    saveTasks(newTasks);
   };
 
   return (
     <AppUI
-      totalTodos={totalTodos}
-      completedTodos={completedTodos}
+      totalTasks={totalTasks}
+      completedTasks={completedTasks}
       searchValue={searchValue}
       setSearchValue={setSearchValue}
-      searchedTodos={searchedTodos}
-      completeTodo={completeTodo}
-      postponeTodo={postponeTodo}
-      deleteTodo={deleteTodo}
+      searchedTasks={searchedTasks}
+      completeTask={completeTask}
+      postponeTask={postponeTask}
+      deleteTask={deleteTask}
     />
   );
 }

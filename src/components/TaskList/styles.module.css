@@ -1,11 +1,11 @@
-.TodoList {
+.TaskList {
   grid-column: 1 / 13;
   grid-row: 4;
   width: 100vw;
 }
 
 @media (min-width: 764px) {
-  .TodoList {
+  .TaskList {
     width: 40vw;
     grid-column: 7 / 13;
   }

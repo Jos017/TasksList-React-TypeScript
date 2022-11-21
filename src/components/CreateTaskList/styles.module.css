@@ -1,4 +1,4 @@
-.CreateTodoList {
+.CreateTaskList {
   grid-column: 1 / 13;
   grid-row: 5;
   position: relative;
@@ -7,14 +7,14 @@
   width: 100vw;
 }
 
-.CreateTodoList__title {
+.CreateTaskList__title {
   margin: 2.2rem;
 }
-.CreateTodoList__subtitle {
+.CreateTaskList__subtitle {
   margin-left: 2.2rem;
 }
 
-.CreateTodoList__input {
+.CreateTaskList__input {
   border: 2px solid var(--gray-primary);
   border-radius: 2.4rem;
   height: 4.8rem;
@@ -26,11 +26,11 @@
   background-color: var(--input-background);
 }
 
-.CreateTodoList__input:hover {
+.CreateTaskList__input:hover {
   box-shadow: 0px 0px 2px 0px var(--gray-secondary);
 }
 
-.CreateTodoList__button {
+.CreateTaskList__button {
   border: none;
   min-height: 5rem;
   width: 100%;
@@ -43,12 +43,12 @@
   background-color: var(--primary);
 }
 
-.CreateTodoList__button:hover {
+.CreateTaskList__button:hover {
   box-shadow: 0px 0px 8px 0px var(--primary);
 }
 
 @media (min-width: 768px) {
-  .CreateTodoList {
+  .CreateTaskList {
     width: 40vw;
     grid-column: 1 / 7;
     grid-row: 1 / 5;

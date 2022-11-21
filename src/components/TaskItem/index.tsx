@@ -10,19 +10,19 @@ interface ItemProps extends Props {
   itemColor?: 'random' | ItemColors;
   text: string;
   completed: boolean;
-  completeTodos: (text: string) => void;
-  postponeTodos: (text: string) => void;
-  deleteTodos: (text: string) => void;
+  completeTasks: (text: string) => void;
+  postponeTasks: (text: string) => void;
+  deleteTasks: (text: string) => void;
 }
 
-export const TodoItem = (props: ItemProps) => {
+export const TaskItem = (props: ItemProps) => {
   const {
     itemColor,
     text,
     completed,
-    completeTodos,
-    postponeTodos,
-    deleteTodos,
+    completeTasks,
+    postponeTasks,
+    deleteTasks,
   } = props;
 
   const getRandomColor = (): ItemColor => {
@@ -55,34 +55,34 @@ export const TodoItem = (props: ItemProps) => {
 
   return (
     <li
-      className={styles.TodoItem}
+      className={styles.TaskItem}
       style={{
         background: cardColor.gradient,
         borderLeft: cardColor.border,
       }}
     >
       <div
-        className={styles.TodoItem__delete}
-        onClick={() => deleteTodos(text)}
+        className={styles.TaskItem__delete}
+        onClick={() => deleteTasks(text)}
       >
-        <i className={`material-icons ${styles.TodoItem__icon__delete}`}>
+        <i className={`material-icons ${styles.TaskItem__icon__delete}`}>
           delete
         </i>
       </div>
-      <div className={styles.TodoItem__p}>
+      <div className={styles.TaskItem__p}>
         <p
           className={
             completed
-              ? styles.TodoItem__p__complete
-              : styles.TodoItem__p__pending
+              ? styles.TaskItem__p__complete
+              : styles.TaskItem__p__pending
           }
         >
           {text}
         </p>
       </div>
       <CustomCheck
-        onComplete={completeTodos}
-        onPostpone={postponeTodos}
+        onComplete={completeTasks}
+        onPostpone={postponeTasks}
         completed={completed}
         text={text}
       />

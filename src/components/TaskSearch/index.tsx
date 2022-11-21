@@ -7,7 +7,7 @@ interface SearchProps extends Props {
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const TodoSearch = (props: SearchProps) => {
+export const TaskSearch = (props: SearchProps) => {
   const { searchValue, setSearchValue } = props;
 
   const onSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,15 +16,15 @@ export const TodoSearch = (props: SearchProps) => {
   };
 
   return (
-    <div className={styles.TodoSearch}>
+    <div className={styles.TaskSearch}>
       <input
         placeholder="Search Task"
-        className={styles.TodoSearch__input}
+        className={styles.TaskSearch__input}
         value={searchValue}
         onChange={onSearchValueChange}
       />
-      <div className={styles.TodoSearch__icon}>
-        <i className={`material-icons ${styles.TodoSearch__icon__search}`}>
+      <div className={styles.TaskSearch__icon}>
+        <i className={`material-icons ${styles.TaskSearch__icon__search}`}>
           search
         </i>
       </div>

@@ -1,4 +1,4 @@
-.TodoSearch {
+.TaskSearch {
   grid-column: 1 / 13;
   grid-row: 3;
   position: relative;
@@ -6,7 +6,7 @@
   width: 100vw;
 }
 
-.TodoSearch__input {
+.TaskSearch__input {
   border: 2px solid var(--gray-primary);
   border-radius: 2.4rem;
   height: 4.8rem;
@@ -19,12 +19,12 @@
   background-color: var(--input-background);
 }
 
-.TodoSearch__input:hover,
-.TodoSearch__input:focus {
+.TaskSearch__input:hover,
+.TaskSearch__input:focus {
   box-shadow: 0px 0px 2px 0px var(--gray-secondary);
 }
 
-.TodoSearch__icon {
+.TaskSearch__icon {
   position: absolute;
   display: flex;
   cursor: pointer;
@@ -38,17 +38,17 @@
   background-color: var(--primary);
 }
 
-.TodoSearch__icon:hover {
+.TaskSearch__icon:hover {
   box-shadow: 0px 0px 8px 0px var(--primary);
 }
 
-.TodoSearch__icon__search {
+.TaskSearch__icon__search {
   color: var(--secondary);
   font-size: 2.4rem;
 }
 
 @media (min-width: 764px) {
-  .TodoSearch {
+  .TaskSearch {
     width: 40vw;
     grid-column: 7 / 13;
   }

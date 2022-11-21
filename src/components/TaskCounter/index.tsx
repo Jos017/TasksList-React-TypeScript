@@ -7,7 +7,7 @@ interface CounterProps extends Props {
   completed: number;
 }
 
-export const TodoCounter = (props: CounterProps) => {
+export const TaskCounter = (props: CounterProps) => {
   const { total, completed } = props;
 
   return (
