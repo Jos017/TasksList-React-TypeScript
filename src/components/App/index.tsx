@@ -1,10 +1,6 @@
 import React from 'react';
-import { TodoCounter } from './components/TodoCounter';
-import { TodoSearch } from './components/TodoSearch';
-import { TodoList } from './components/TodoList';
-import { CreateTodoList } from './components/CreateTodoList';
-import { List } from './models/List.model';
-import './App.css';
+import { List } from '../../models/List.model';
+import { AppUI } from './AppUI';
 
 const defaultTodos: List[] = [
   { text: 'Cortar cebolla', completed: false },
@@ -52,18 +48,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1 className="App__title">Your Tasks</h1>
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-      <TodoList
-        todos={searchedTodos}
-        completeTodos={completeTodo}
-        postponeTodos={postponeTodo}
-        deleteTodos={deleteTodo}
-      />
-      <CreateTodoList />
-    </div>
+    <AppUI
+      totalTodos={totalTodos}
+      completedTodos={completedTodos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTodos={searchedTodos}
+      completeTodo={completeTodo}
+      postponeTodo={postponeTodo}
+      deleteTodo={deleteTodo}
+    />
   );
 }
 
