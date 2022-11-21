@@ -16,6 +16,7 @@ interface AppUIProps extends Props {
   completeTask: (text: string) => void;
   postponeTask: (text: string) => void;
   deleteTask: (text: string) => void;
+  addTask: (text: string) => void;
 }
 
 export const AppUI = (props: AppUIProps) => {
@@ -28,6 +29,7 @@ export const AppUI = (props: AppUIProps) => {
     completeTask,
     postponeTask,
     deleteTask,
+    addTask,
   } = props;
   return (
     <div className={styles.App}>
@@ -40,7 +42,7 @@ export const AppUI = (props: AppUIProps) => {
         postponeTasks={postponeTask}
         deleteTasks={deleteTask}
       />
-      <CreateTaskList />
+      <CreateTaskList addTask={addTask} />
     </div>
   );
 };

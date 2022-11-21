@@ -1,10 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Props } from '../../models/Props.model';
 import styles from './styles.module.css';
 
-export const CreateTaskList = () => {
+interface CreateTaskProps extends Props {
+  addTask: (text: string) => void;
+}
+
+export const CreateTaskList = (props: CreateTaskProps) => {
+  const { addTask } = props;
+
+  //Controlling input
+  const [newTask, setNewTask] = useState('');
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTask(e.target.value);
+  };
+
   // e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  const onClickButton = (msg: string) => {
-    alert(msg);
+  const handleSubmit = (task: string) => {
+    if (task) {
+      addTask(task);
+      setNewTask('');
+    } else {
+      alert('Add a valid task');
+    }
+  };
+
+  const handleKeyUp = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    task: string
+  ) => {
+    if (e.key === 'Enter') {
+      handleSubmit(task);
+    }
   };
 
   return (
@@ -14,11 +41,16 @@ export const CreateTaskList = () => {
       <input
         className={styles.CreateTaskList__input}
         placeholder="Write your task here"
+        value={newTask}
+        onChange={handleInputChange}
+        onKeyUp={(e) => {
+          handleKeyUp(e, newTask);
+        }}
       />
       <button
         className={styles.CreateTaskList__button}
         onClick={() => {
-          onClickButton('New Task Added');
+          handleSubmit(newTask);
         }}
       >
         Add Task

@@ -58,6 +58,13 @@ function App() {
     saveTasks(newTasks);
   };
 
+  const addTask = (text: string) => {
+    const addedTask: List = { text: text, completed: false };
+    const newTasks = [...tasks];
+    newTasks.push(addedTask);
+    saveTasks(newTasks);
+  };
+
   return (
     <AppUI
       totalTasks={totalTasks}
@@ -68,6 +75,7 @@ function App() {
       completeTask={completeTask}
       postponeTask={postponeTask}
       deleteTask={deleteTask}
+      addTask={addTask}
     />
   );
 }
