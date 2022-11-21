@@ -26,7 +26,8 @@
   background-color: var(--input-background);
 }
 
-.CreateTaskList__input:hover {
+.CreateTaskList__input:hover,
+.CreateTaskList__input:focus {
   box-shadow: 0px 0px 2px 0px var(--gray-secondary);
 }
 

@@ -33,6 +33,7 @@ export const AppUI = (props: AppUIProps) => {
   } = props;
   return (
     <div className={styles.App}>
+      <CreateTaskList addTask={addTask} />
       <h1 className={styles.App__title}>Your Tasks</h1>
       <TaskCounter completed={completedTasks} total={totalTasks} />
       <TaskSearch searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -42,7 +43,6 @@ export const AppUI = (props: AppUIProps) => {
         postponeTasks={postponeTask}
         deleteTasks={deleteTask}
       />
-      <CreateTaskList addTask={addTask} />
     </div>
   );
 };
