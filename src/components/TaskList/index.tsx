@@ -18,6 +18,7 @@ export const TaskList = (props: ListProps) => {
 
   return (
     <section className={styles.TaskList}>
+      {props.children}
       <ul>
         {tasks.map((task) => {
           if (counter < 3) {

@@ -8,6 +8,8 @@ import { List } from '../../models/List.model';
 import styles from './styles.module.css';
 
 interface AppUIProps extends Props {
+  loading: boolean;
+  error: boolean;
   totalTasks: number;
   completedTasks: number;
   searchValue: string;
@@ -30,6 +32,8 @@ export const AppUI = (props: AppUIProps) => {
     postponeTask,
     deleteTask,
     addTask,
+    loading,
+    error,
   } = props;
   return (
     <div className={styles.App}>
@@ -42,7 +46,15 @@ export const AppUI = (props: AppUIProps) => {
         completeTasks={completeTask}
         postponeTasks={postponeTask}
         deleteTasks={deleteTask}
-      />
+      >
+        <>
+          {error && <p>There was an error...</p>}
+          {loading && <p>We are loading your data, wait...</p>}
+          {!loading && !searchedTasks.length && !error && (
+            <p>Add your first task</p>
+          )}
+        </>
+      </TaskList>
     </div>
   );
 };

@@ -4,7 +4,12 @@ import { AppUI } from './AppUI';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 function App() {
-  const [tasks, saveTasks] = useLocalStorage('TasksApp_V1', []);
+  const {
+    item: tasks,
+    saveItem: saveTasks,
+    loading,
+    error,
+  } = useLocalStorage('TasksApp_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTasks = tasks.filter((task) => task.completed).length;
@@ -51,6 +56,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       totalTasks={totalTasks}
       completedTasks={completedTasks}
       searchValue={searchValue}
