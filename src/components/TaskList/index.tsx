@@ -5,14 +5,14 @@ import { List } from '../../models/List.model';
 import { Props } from '../../models/Props.model';
 
 interface ListProps extends Props {
-  tasks: List[];
+  searchedTasks: List[];
   completeTasks: (text: string) => void;
   postponeTasks: (text: string) => void;
   deleteTasks: (text: string) => void;
 }
 
 export const TaskList = (props: ListProps) => {
-  const { tasks, completeTasks, postponeTasks, deleteTasks } = props;
+  const { searchedTasks, completeTasks, postponeTasks, deleteTasks } = props;
   let counter = 0;
   let itemColor = counter;
 
@@ -20,7 +20,7 @@ export const TaskList = (props: ListProps) => {
     <section className={styles.TaskList}>
       {props.children}
       <ul>
-        {tasks.map((task) => {
+        {searchedTasks.map((task) => {
           if (counter < 3) {
             itemColor = counter;
             counter += 1;
