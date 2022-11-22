@@ -1,18 +1,13 @@
 import React from 'react';
 import styles from './styles.module.css';
 import { TaskItem } from '../TaskItem';
-import { List } from '../../models/List.model';
+import { AppContext } from '../../models/AppContext.model';
+import { TaskContext } from '../../context/TaskContext';
 import { Props } from '../../models/Props.model';
 
-interface ListProps extends Props {
-  searchedTasks: List[];
-  completeTasks: (text: string) => void;
-  postponeTasks: (text: string) => void;
-  deleteTasks: (text: string) => void;
-}
-
-export const TaskList = (props: ListProps) => {
-  const { searchedTasks, completeTasks, postponeTasks, deleteTasks } = props;
+export const TaskList = (props: Props) => {
+  const ctx = React.useContext(TaskContext);
+  const { searchedTasks } = ctx as AppContext;
   let counter = 0;
   let itemColor = counter;
 
@@ -20,7 +15,7 @@ export const TaskList = (props: ListProps) => {
     <section className={styles.TaskList}>
       {props.children}
       <ul>
-        {searchedTasks.map((task) => {
+        {searchedTasks?.map((task) => {
           if (counter < 3) {
             itemColor = counter;
             counter += 1;
@@ -34,9 +29,6 @@ export const TaskList = (props: ListProps) => {
               text={task.text}
               itemColor={itemColor}
               completed={task.completed}
-              completeTasks={completeTasks}
-              postponeTasks={postponeTasks}
-              deleteTasks={deleteTasks}
             />
           );
         })}

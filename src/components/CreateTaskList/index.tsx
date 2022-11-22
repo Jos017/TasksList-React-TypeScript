@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Props } from '../../models/Props.model';
+import { TaskContext } from '../../context/TaskContext';
+import { AppContext } from '../../models/AppContext.model';
 import styles from './styles.module.css';
 
-interface CreateTaskProps extends Props {
-  addTask: (text: string) => void;
-}
-
-export const CreateTaskList = (props: CreateTaskProps) => {
-  const { addTask } = props;
+export const CreateTaskList = () => {
+  const ctx = React.useContext(TaskContext);
+  const { addTask } = ctx as AppContext;
 
   //Controlling input
   const [newTask, setNewTask] = useState('');
@@ -18,7 +16,7 @@ export const CreateTaskList = (props: CreateTaskProps) => {
   // e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   const handleSubmit = (task: string) => {
     if (task) {
-      addTask(task);
+      addTask && addTask(task);
       setNewTask('');
     } else {
       alert('Add a valid task');

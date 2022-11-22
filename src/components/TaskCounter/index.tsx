@@ -1,18 +1,15 @@
 import React from 'react';
-import { Props } from '../../models/Props.model';
+import { TaskContext } from '../../context/TaskContext';
+import { AppContext } from '../../models/AppContext.model';
 import styles from './styles.module.css';
 
-interface CounterProps extends Props {
-  total: number;
-  completed: number;
-}
-
-export const TaskCounter = (props: CounterProps) => {
-  const { total, completed } = props;
+export const TaskCounter = () => {
+  const ctx = React.useContext(TaskContext);
+  const { completedTasks, totalTasks } = ctx as AppContext;
 
   return (
     <h2 className={styles.title}>
-      {`Has completado ${completed} de las ${total} tareas`}
+      {`Has completado ${completedTasks} de las ${totalTasks} tareas`}
     </h2>
   );
 };

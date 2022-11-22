@@ -5,30 +5,23 @@ import { Props } from '../../models/Props.model';
 import { ItemColors } from '../../models/ItemColors.model';
 import { ItemColor } from '../../models/ItemColor.model';
 import { cardsColors } from '../../models/ItemColors.model';
+import { TaskContext } from '../../context/TaskContext';
+import { AppContext } from '../../models/AppContext.model';
 
 interface ItemProps extends Props {
   itemColor?: 'random' | ItemColors;
   text: string;
   completed: boolean;
-  completeTasks: (text: string) => void;
-  postponeTasks: (text: string) => void;
-  deleteTasks: (text: string) => void;
 }
 
 export const TaskItem = (props: ItemProps) => {
-  const {
-    itemColor,
-    text,
-    completed,
-    completeTasks,
-    postponeTasks,
-    deleteTasks,
-  } = props;
+  const { itemColor, text, completed } = props;
+  const ctx = React.useContext(TaskContext);
+  const { completeTask, postponeTask, deleteTask } = ctx as AppContext;
 
   const getRandomColor = (): ItemColor => {
     const maxNumber = 3;
     const randNumber = Math.floor(Math.random() * (maxNumber + 1));
-    console.log(randNumber);
     return cardsColors[randNumber as ItemColors];
   };
 
@@ -63,7 +56,7 @@ export const TaskItem = (props: ItemProps) => {
     >
       <div
         className={styles.TaskItem__delete}
-        onClick={() => deleteTasks(text)}
+        onClick={() => deleteTask && deleteTask(text)}
       >
         <i className={`material-icons ${styles.TaskItem__icon__delete}`}>
           delete
@@ -81,8 +74,8 @@ export const TaskItem = (props: ItemProps) => {
         </p>
       </div>
       <CustomCheck
-        onComplete={completeTasks}
-        onPostpone={postponeTasks}
+        onComplete={completeTask}
+        onPostpone={postponeTask}
         completed={completed}
         text={text}
       />

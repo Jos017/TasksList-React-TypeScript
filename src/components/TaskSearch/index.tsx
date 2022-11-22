@@ -1,18 +1,14 @@
 import React from 'react';
-import { Props } from '../../models/Props.model';
 import styles from './styles.module.css';
+import { TaskContext } from '../../context/TaskContext';
+import { AppContext } from '../../models/AppContext.model';
 
-interface SearchProps extends Props {
-  searchValue: string;
-  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const TaskSearch = (props: SearchProps) => {
-  const { searchValue, setSearchValue } = props;
+export const TaskSearch = () => {
+  const ctx = React.useContext(TaskContext);
+  const { searchValue, setSearchValue } = ctx as AppContext;
 
   const onSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setSearchValue(e.target.value);
+    setSearchValue && setSearchValue(e.target.value);
   };
 
   return (
