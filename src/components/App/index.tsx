@@ -1,20 +1,10 @@
 import React from 'react';
 import { List } from '../../models/List.model';
 import { AppUI } from './AppUI';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 function App() {
-  const localStorageTasks = localStorage.getItem('TasksApp_V1');
-  let parsedTasks: List[];
-
-  // Verify if there are created tasks
-  if (!localStorageTasks) {
-    localStorage.setItem('TasksApp_V1', JSON.stringify([]));
-    parsedTasks = [];
-  } else {
-    parsedTasks = JSON.parse(localStorageTasks);
-  }
-
-  const [tasks, setTasks] = React.useState(parsedTasks);
+  const [tasks, saveTasks] = useLocalStorage('TasksApp_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTasks = tasks.filter((task) => task.completed).length;
@@ -30,12 +20,6 @@ function App() {
       return taskText.includes(searchText);
     });
   }
-
-  const saveTasks = (newTasks: List[]) => {
-    const stringifiedTasks = JSON.stringify(newTasks);
-    localStorage.setItem('TasksApp_V1', stringifiedTasks);
-    setTasks(newTasks);
-  };
 
   const completeTask = (text: string) => {
     const taskIndex = tasks.findIndex((task) => task.text === text);
