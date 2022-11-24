@@ -4,13 +4,17 @@ import { Props } from '../../models/Props.model';
 import { TaskContext } from '../../context/TaskContext';
 import { AppContext } from '../../models/AppContext.model';
 import styles from './styles.module.css';
-import { text } from 'stream/consumers';
 
 function Modal(props: Props) {
   const modal = document.getElementById('modal') as HTMLElement;
   const ctx = React.useContext(TaskContext);
-  const { isModalOpen, setIsModalOpen, deleteTask, textModalValue } =
-    ctx as AppContext;
+  const {
+    isModalOpen,
+    setIsModalOpen,
+    deleteTask,
+    textModalValue,
+    modalAction,
+  } = ctx as AppContext;
 
   const handleModalClose = () => {
     if (setIsModalOpen && isModalOpen) {
@@ -18,9 +22,11 @@ function Modal(props: Props) {
     }
   };
 
-  const handleConfirmAction = (action: 'delete' | 'continue') => {
+  const handleConfirmAction = (action: 'delete' | 'continue' | undefined) => {
     if (textModalValue && action === 'delete') {
       deleteTask && deleteTask(textModalValue);
+      setIsModalOpen && setIsModalOpen(false);
+    } else if (action === 'continue') {
       setIsModalOpen && setIsModalOpen(false);
     }
   };
@@ -29,23 +35,42 @@ function Modal(props: Props) {
     <div className={styles.Modal__background}>
       <div className={styles.Modal__container}>
         <div className={styles.Modal__textContainer}>
-          <h3>Confirm delete</h3>
+          <h3>{modalAction === 'delete' ? 'Confirm delete' : 'Try Again'}</h3>
           <p className={styles.Modal__textContainer__p}>
-            Are you sure you want to delete: <strong>{props.children}</strong>
+            {modalAction === 'delete' ? (
+              <React.Fragment>
+                Are you sure you want to delete:{' '}
+                <strong>{props.children}</strong>
+              </React.Fragment>
+            ) : (
+              'The task you are trying to add is too short, please add a description with 4 characters or more'
+            )}
           </p>
         </div>
         <div className={styles.Modal__btnContainer}>
+          {modalAction === 'delete' && (
+            <button
+              className={`${styles.Modal__btn} ${styles.Modal__btnGray}`}
+              onClick={handleModalClose}
+            >
+              Cancel
+            </button>
+          )}
           <button
-            className={`${styles.Modal__btn} ${styles.Modal__btnGray}`}
-            onClick={handleModalClose}
+            className={
+              modalAction === 'delete'
+                ? `${styles.Modal__btn} ${styles.Modal__btnAlert}`
+                : modalAction === 'continue'
+                ? `${styles.Modal__btn}`
+                : `${styles.Modal__btnGray}`
+            }
+            onClick={() => handleConfirmAction(modalAction)}
           >
-            Cancel
-          </button>
-          <button
-            className={`${styles.Modal__btn} ${styles.Modal__btnAlert}`}
-            onClick={() => handleConfirmAction('delete')}
-          >
-            Delete
+            {modalAction === 'delete'
+              ? 'Delete'
+              : modalAction === 'continue'
+              ? 'Continue'
+              : null}
           </button>
         </div>
       </div>

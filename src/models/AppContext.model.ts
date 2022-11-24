@@ -16,4 +16,6 @@ export interface AppContext {
   setIsModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   textModalValue?: string;
   setTextModalValue?: React.Dispatch<React.SetStateAction<string>>;
+  modalAction?: 'continue' | 'delete';
+  setModalAction?: React.Dispatch<React.SetStateAction<'continue' | 'delete'>>;
 }

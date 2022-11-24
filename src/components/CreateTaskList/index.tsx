@@ -5,7 +5,8 @@ import styles from './styles.module.css';
 
 export const CreateTaskList = () => {
   const ctx = React.useContext(TaskContext);
-  const { addTask } = ctx as AppContext;
+  const { addTask, setIsModalOpen, isModalOpen, setModalAction } =
+    ctx as AppContext;
 
   //Controlling input
   const [newTask, setNewTask] = useState('');
@@ -15,11 +16,14 @@ export const CreateTaskList = () => {
 
   // e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   const handleSubmit = (task: string) => {
-    if (task) {
+    if (task.length >= 4) {
       addTask && addTask(task);
       setNewTask('');
     } else {
-      alert('Add a valid task');
+      if (!isModalOpen) {
+        setModalAction && setModalAction('continue');
+        setIsModalOpen && setIsModalOpen(true);
+      }
     }
   };
 

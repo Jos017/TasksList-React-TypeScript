@@ -17,10 +17,16 @@ interface ItemProps extends Props {
 export const TaskItem = (props: ItemProps) => {
   const { itemColor, text, completed } = props;
   const ctx = React.useContext(TaskContext);
-  const { completeTask, postponeTask, setIsModalOpen, setTextModalValue } =
-    ctx as AppContext;
+  const {
+    completeTask,
+    postponeTask,
+    setIsModalOpen,
+    setTextModalValue,
+    setModalAction,
+  } = ctx as AppContext;
 
   const handleModalOpen = (text: string) => {
+    setModalAction && setModalAction('delete');
     setIsModalOpen && setIsModalOpen(true);
     setTextModalValue && setTextModalValue(text);
   };
