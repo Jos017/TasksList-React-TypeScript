@@ -12,4 +12,8 @@ export interface AppContext {
   postponeTask?: (text: string) => void;
   deleteTask?: (text: string) => void;
   addTask?: (text: string) => void;
+  isModalOpen?: boolean;
+  setIsModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  textModalValue?: string;
+  setTextModalValue?: React.Dispatch<React.SetStateAction<string>>;
 }

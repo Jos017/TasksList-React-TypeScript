@@ -14,6 +14,8 @@ export function TaskProvider(props: Props) {
     error,
   } = useLocalStorage('TasksApp_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [textModalValue, setTextModalValue] = React.useState('');
 
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
@@ -69,6 +71,10 @@ export function TaskProvider(props: Props) {
     postponeTask,
     deleteTask,
     addTask,
+    isModalOpen,
+    setIsModalOpen,
+    textModalValue,
+    setTextModalValue,
   };
 
   return (

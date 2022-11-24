@@ -17,7 +17,13 @@ interface ItemProps extends Props {
 export const TaskItem = (props: ItemProps) => {
   const { itemColor, text, completed } = props;
   const ctx = React.useContext(TaskContext);
-  const { completeTask, postponeTask, deleteTask } = ctx as AppContext;
+  const { completeTask, postponeTask, setIsModalOpen, setTextModalValue } =
+    ctx as AppContext;
+
+  const handleModalOpen = (text: string) => {
+    setIsModalOpen && setIsModalOpen(true);
+    setTextModalValue && setTextModalValue(text);
+  };
 
   const getRandomColor = (): ItemColor => {
     const maxNumber = 3;
@@ -56,7 +62,7 @@ export const TaskItem = (props: ItemProps) => {
     >
       <div
         className={styles.TaskItem__delete}
-        onClick={() => deleteTask && deleteTask(text)}
+        onClick={() => handleModalOpen(text)}
       >
         <i className={`material-icons ${styles.TaskItem__icon__delete}`}>
           delete

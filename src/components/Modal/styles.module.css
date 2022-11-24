@@ -1,0 +1,65 @@
+.Modal__background {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal__container {
+  width: 280px;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  background-color: var(--white);
+  font-size: 1.4rem;
+}
+.Modal__textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+  padding: 2rem 2.4rem;
+}
+.Modal__textContainer__p {
+  color: var(--gray-primary);
+}
+
+.Modal__btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.8rem 1.2rem;
+  background-color: var(--control-disabled);
+}
+
+.Modal__btn {
+  min-width: 7.6rem;
+  min-height: 3rem;
+  margin: 0.4rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: var(--primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--secondary);
+}
+.Modal__btn:hover {
+  box-shadow: 0px 0px 8px 0px var(--primary);
+}
+.Modal__btnGray {
+  background-color: var(--control-disabled);
+  color: var(--gray-primary);
+}
+.Modal__btnGray:hover {
+  box-shadow: 0px 0px 8px 0px var(--gray-primary);
+}
+.Modal__btnAlert {
+  background-color: var(--alert);
+}
+.Modal__btnAlert:hover {
+  box-shadow: 0px 0px 8px 0px var(--alert);
+}

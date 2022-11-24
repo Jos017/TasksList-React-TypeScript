@@ -6,10 +6,12 @@ import { CreateTaskList } from '../CreateTaskList';
 import { TaskContext } from '../../context/TaskContext';
 import styles from './styles.module.css';
 import { AppContext } from '../../models/AppContext.model';
+import { Modal } from '../Modal';
 
 export const AppUI = () => {
   const ctx = React.useContext(TaskContext);
-  const { loading, error, searchedTasks } = ctx as AppContext;
+  const { loading, error, searchedTasks, isModalOpen, textModalValue } =
+    ctx as AppContext;
 
   return (
     <div className={styles.App}>
@@ -26,6 +28,11 @@ export const AppUI = () => {
           )}
         </>
       </TaskList>
+      {isModalOpen && (
+        <Modal>
+          <p>{textModalValue}</p>
+        </Modal>
+      )}
     </div>
   );
 };
