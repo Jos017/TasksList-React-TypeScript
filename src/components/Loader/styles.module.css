@@ -1,0 +1,23 @@
+.loading {
+  display: grid;
+  min-height: 6rem;
+  margin: 2.2rem;
+  border-radius: 12px;
+  background-color: var(--control-disabled);
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    var(--control-disabled);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}

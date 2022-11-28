@@ -25,7 +25,7 @@ export function useLocalStorage(itemName: string, initialValue: List[]) {
       } catch (err) {
         setError(true);
       }
-    }, 1000);
+    }, 1500);
   }, [initialValue, itemName]);
 
   const saveItem = (newItem: List[]) => {

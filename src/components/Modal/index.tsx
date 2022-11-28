@@ -36,7 +36,7 @@ function Modal(props: Props) {
       <div className={styles.Modal__container}>
         <div className={styles.Modal__textContainer}>
           <h3>{modalAction === 'delete' ? 'Confirm delete' : 'Try Again'}</h3>
-          <p className={styles.Modal__textContainer__p}>
+          <div className={styles.Modal__textContainer__p}>
             {modalAction === 'delete' ? (
               <React.Fragment>
                 Are you sure you want to delete:{' '}
@@ -45,7 +45,7 @@ function Modal(props: Props) {
             ) : (
               'The task you are trying to add is too short, please add a description with 4 characters or more'
             )}
-          </p>
+          </div>
         </div>
         <div className={styles.Modal__btnContainer}>
           {modalAction === 'delete' && (

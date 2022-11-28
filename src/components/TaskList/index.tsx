@@ -15,7 +15,7 @@ export const TaskList = (props: Props) => {
     <section className={styles.TaskList}>
       {props.children}
       <ul>
-        {searchedTasks?.map((task) => {
+        {searchedTasks?.map((task, index) => {
           if (counter < 3) {
             itemColor = counter;
             counter += 1;
@@ -25,7 +25,7 @@ export const TaskList = (props: Props) => {
           }
           return (
             <TaskItem
-              key={task.text}
+              key={index}
               text={task.text}
               itemColor={itemColor}
               completed={task.completed}

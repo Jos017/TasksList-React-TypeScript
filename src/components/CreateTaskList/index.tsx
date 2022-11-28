@@ -38,25 +38,27 @@ export const CreateTaskList = () => {
 
   return (
     <section className={styles.CreateTaskList}>
-      <h2 className={styles.CreateTaskList__title}>Add new Task</h2>
-      <h4 className={styles.CreateTaskList__subtitle}>Task Name</h4>
-      <input
-        className={styles.CreateTaskList__input}
-        placeholder="Write your task here"
-        value={newTask}
-        onChange={handleInputChange}
-        onKeyUp={(e) => {
-          handleKeyUp(e, newTask);
-        }}
-      />
-      <button
-        className={styles.CreateTaskList__button}
-        onClick={() => {
-          handleSubmit(newTask);
-        }}
-      >
-        Add Task
-      </button>
+      <div className={styles.CreateTaskList__container}>
+        <h2 className={styles.CreateTaskList__title}>Add new Task</h2>
+        <h4 className={styles.CreateTaskList__subtitle}>Task Name</h4>
+        <input
+          className={styles.CreateTaskList__input}
+          placeholder="Write your task here"
+          value={newTask}
+          onChange={handleInputChange}
+          onKeyUp={(e) => {
+            handleKeyUp(e, newTask);
+          }}
+        />
+        <button
+          className={styles.CreateTaskList__button}
+          onClick={() => {
+            handleSubmit(newTask);
+          }}
+        >
+          Add Task
+        </button>
+      </div>
     </section>
   );
 };

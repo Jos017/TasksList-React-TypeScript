@@ -1,10 +1,13 @@
 .CreateTaskList {
   grid-column: 1 / 13;
   grid-row: 5;
+  width: 100vw;
+}
+
+.CreateTaskList__container {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100vw;
 }
 
 .CreateTaskList__title {
@@ -53,5 +56,10 @@
     width: 40vw;
     grid-column: 1 / 7;
     grid-row: 1 / 5;
+    align-self: flex-start;
+  }
+  .CreateTaskList__container {
+    position: fixed;
+    width: 40vw;
   }
 }

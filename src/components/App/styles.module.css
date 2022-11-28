@@ -3,18 +3,25 @@
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(12, 1fr);
-  margin: 1.6rem 0;
+  padding: 1.6rem 0;
 }
 
-.App__title {
+.App__list {
+  align-self: flex-start;
   grid-column: 1 / 13;
   grid-row: 1;
   text-align: center;
+}
+
+.App__title {
   font-size: 5.2rem;
 }
 
 @media (min-width: 768px) {
-  .App__title {
+  .App {
+    height: 100vh;
+  }
+  .App__list {
     grid-column: 7 / 13;
   }
 }

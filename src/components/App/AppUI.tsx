@@ -7,6 +7,7 @@ import { TaskContext } from '../../context/TaskContext';
 import styles from './styles.module.css';
 import { AppContext } from '../../models/AppContext.model';
 import { Modal } from '../Modal';
+import { Loader } from '../Loader';
 
 export const AppUI = () => {
   const ctx = React.useContext(TaskContext);
@@ -16,18 +17,27 @@ export const AppUI = () => {
   return (
     <div className={styles.App}>
       <CreateTaskList />
-      <h1 className={styles.App__title}>Your Tasks</h1>
-      <TaskCounter />
-      <TaskSearch />
-      <TaskList>
-        <>
-          {error && <p>There was an error...</p>}
-          {loading && <p>We are loading your data, wait...</p>}
-          {!loading && !searchedTasks?.length && !error && (
-            <p>Add your first task</p>
-          )}
-        </>
-      </TaskList>
+      <div className={styles.App__list}>
+        <h1 className={styles.App__title}>Your Tasks</h1>
+        <TaskCounter />
+        <TaskSearch />
+        <TaskList>
+          <>
+            {error && <p>There was an error...</p>}
+            {loading && (
+              <>
+                <Loader />
+                <Loader />
+                <Loader />
+                <Loader />
+              </>
+            )}
+            {!loading && !searchedTasks?.length && !error && (
+              <p>Add your first task</p>
+            )}
+          </>
+        </TaskList>
+      </div>
       {isModalOpen && (
         <Modal>
           <p>{textModalValue}</p>
