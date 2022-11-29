@@ -3,6 +3,7 @@ import { TaskCounter } from '../TaskCounter';
 import { TaskSearch } from '../TaskSearch';
 import { TaskList } from '../TaskList';
 import { CreateTaskList } from '../CreateTaskList';
+import { CreateTaskListBtn } from '../CreateTaskListBtn';
 import { TaskContext } from '../../context/TaskContext';
 import styles from './styles.module.css';
 import { AppContext } from '../../models/AppContext.model';
@@ -18,9 +19,11 @@ export const AppUI = () => {
     <div className={styles.App}>
       <CreateTaskList />
       <div className={styles.App__list}>
-        <h1 className={styles.App__title}>Your Tasks</h1>
-        <TaskCounter />
-        <TaskSearch />
+        <div className={styles.App__search}>
+          <h1 className={styles.App__title}>Your Tasks</h1>
+          <TaskCounter />
+          <TaskSearch />
+        </div>
         <TaskList>
           <>
             {error && <p>There was an error...</p>}
@@ -37,6 +40,7 @@ export const AppUI = () => {
             )}
           </>
         </TaskList>
+        <CreateTaskListBtn />
       </div>
       {isModalOpen && (
         <Modal>

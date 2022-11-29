@@ -9,7 +9,8 @@ export const TaskCounter = () => {
 
   return (
     <h2 className={styles.title}>
-      {`Has completado ${completedTasks} de las ${totalTasks} tareas`}
+      Has completado <span>{completedTasks}</span> de las{' '}
+      <span>{totalTasks}</span> tareas
     </h2>
   );
 };

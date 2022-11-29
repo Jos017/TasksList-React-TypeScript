@@ -1,7 +1,6 @@
 .CreateTaskList {
-  grid-column: 1 / 13;
-  grid-row: 5;
-  width: 100vw;
+  display: none;
+  align-self: flex-start;
 }
 
 .CreateTaskList__container {
@@ -53,13 +52,10 @@
 
 @media (min-width: 768px) {
   .CreateTaskList {
+    display: block;
     width: 40vw;
-    grid-column: 1 / 7;
-    grid-row: 1 / 5;
-    align-self: flex-start;
   }
   .CreateTaskList__container {
-    position: fixed;
     width: 40vw;
   }
 }

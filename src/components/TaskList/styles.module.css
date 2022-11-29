@@ -1,12 +1,13 @@
 .TaskList {
-  grid-column: 1 / 13;
-  grid-row: 4;
-  width: 100vw;
+  width: 100%;
+  height: calc(100% - 19.8rem - 6.4rem + 5px);
+  overflow: auto;
 }
 
 @media (min-width: 764px) {
   .TaskList {
-    width: 40vw;
-    grid-column: 7 / 13;
+    display: flex;
+    justify-content: center;
+    width: 95%;
   }
 }

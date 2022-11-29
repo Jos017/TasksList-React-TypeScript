@@ -1,5 +1,6 @@
 .Modal__background {
   position: fixed;
+  z-index: 2;
   top: -10px;
   left: -10px;
   right: -10px;
