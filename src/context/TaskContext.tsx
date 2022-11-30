@@ -16,9 +16,9 @@ export function TaskProvider(props: Props) {
   const [searchValue, setSearchValue] = React.useState('');
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [textModalValue, setTextModalValue] = React.useState('');
-  const [modalAction, setModalAction] = React.useState<'continue' | 'delete'>(
-    'continue'
-  );
+  const [modalAction, setModalAction] = React.useState<
+    'continue' | 'delete' | 'create'
+  >('continue');
 
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
