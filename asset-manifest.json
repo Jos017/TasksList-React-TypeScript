@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TasksList-React-TypeScript/static/css/main.c171f1bb.css",
+    "main.js": "/TasksList-React-TypeScript/static/js/main.e3e41739.js",
+    "index.html": "/TasksList-React-TypeScript/index.html",
+    "main.c171f1bb.css.map": "/TasksList-React-TypeScript/static/css/main.c171f1bb.css.map",
+    "main.e3e41739.js.map": "/TasksList-React-TypeScript/static/js/main.e3e41739.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c171f1bb.css",
+    "static/js/main.e3e41739.js"
+  ]
+}
