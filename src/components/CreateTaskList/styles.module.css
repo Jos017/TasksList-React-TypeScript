@@ -1,12 +1,21 @@
 .CreateTaskList {
   display: none;
-  align-self: flex-start;
 }
 
 .CreateTaskList__container {
   position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.CreateTaskList__img {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.CreateTaskList__img img {
+  width: 300px;
 }
 
 .CreateTaskList__title {
@@ -52,8 +61,14 @@
 
 @media (min-width: 768px) {
   .CreateTaskList {
-    display: block;
-    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45vw;
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .CreateTaskList__container {
     width: 40vw;

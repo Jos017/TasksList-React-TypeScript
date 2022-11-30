@@ -45,6 +45,6 @@
 @media (min-width: 764px) {
   .TaskSearch {
     width: 100%;
-    grid-column: 7 / 13;
+    max-width: 400px;
   }
 }

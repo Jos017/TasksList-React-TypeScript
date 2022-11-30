@@ -1,6 +1,6 @@
 .App {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   height: 100vh;
 }
@@ -12,9 +12,15 @@
   align-items: center;
   align-self: flex-start;
   text-align: center;
+  border-radius: 3rem;
+  overflow: hidden;
+  background-color: var(--white);
 }
 
 .App__search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 2.2rem;
   background-color: var(--white);
 }
@@ -28,13 +34,14 @@
 @media (min-width: 768px) {
   .App {
     height: 100vh;
+    background-color: #e6e6ff;
     padding: 2.2rem 0;
   }
   .App__search {
     width: 100%;
   }
   .App__list {
-    width: 40vw;
-    border: 2px solid var(--primary);
+    width: 45vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }

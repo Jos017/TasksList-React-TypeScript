@@ -39,6 +39,9 @@ export const CreateTaskList = () => {
   return (
     <section className={styles.CreateTaskList}>
       <div className={styles.CreateTaskList__container}>
+        <div className={styles.CreateTaskList__img}>
+          <img src="panda.png" alt="panda" />
+        </div>
         <h2 className={styles.CreateTaskList__title}>Add new Task</h2>
         <h4 className={styles.CreateTaskList__subtitle}>Task Name</h4>
         <input
